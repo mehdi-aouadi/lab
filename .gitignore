@@ -2,7 +2,9 @@
 .classpath
 .project
 .settings/
-
+/.idea/*
+*/target/*
+*.iml
 # Maven
 log/
 target/
