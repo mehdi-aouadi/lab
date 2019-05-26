@@ -11,7 +11,7 @@ public class Encoding {
   public static String runLengthEncode(String str) {
     if(str.matches(".*\\d.*")) {
       throw new IllegalArgumentException("String should not contain any digit. Otherwise it will " +
-          "compromise the decoding.");
+          "compromise the encoding / decoding.");
     }
 
     StringBuilder stringBuilder = new StringBuilder();

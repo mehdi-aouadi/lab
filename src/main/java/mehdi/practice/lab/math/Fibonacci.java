@@ -3,18 +3,9 @@ package mehdi.practice.lab.math;
 public class Fibonacci {
 
 	public static int recursiveFibonacci(int order) {
-		int result = 0;
-
-		if (order == 0) {
-			return 0;
-		} else if (order == 1) {
-			return 1;
-		}
-
-		result += recursiveFibonacci(order - 2) + recursiveFibonacci(order - 1);
-
-		return result;
-
+		return order == 0 ? 0 :
+				order == 1 ? 1 :
+						recursiveFibonacci(order - 1) + recursiveFibonacci(order - 2);
 	}
 
 	public static int nonRecursiveFibonacci(int order) {

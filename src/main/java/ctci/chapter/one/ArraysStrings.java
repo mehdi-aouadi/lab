@@ -53,7 +53,7 @@ public class ArraysStrings {
   }
 
   /**
-   * Checks if a String is a permutation of another String
+   * Checks if a {@link String} is a permutation of another String
    * @param firstString
    * @param secondString
    * @return true if firstString is a permutation of secondString. False otherwise
@@ -114,6 +114,12 @@ public class ArraysStrings {
     return true;
   }
 
+  /**
+   * Converts a {@link String} to an int.
+   * @param str The {@link String} to convert. May contain negative signe "-"
+   *            otherwise considered positive ("+" sign not accepted)
+   * @return
+   */
   public static int stringToInteger(String str) {
     boolean negative = str.charAt(0) == '-';
     if(negative) {
@@ -122,15 +128,26 @@ public class ArraysStrings {
     int result = 0;
     for (int index = 0; index < str.length(); index++) {
       int intValue = str.charAt(index) - '0';
+      if(intValue > 9 || intValue < 0) {
+        throw new IllegalArgumentException(String.format("%s contains non digit value " +
+            "or special charctacter ither tha '-'", str));
+      }
       result = result * 10;
       result += str.charAt(index) - '0';
     }
     return negative ? result * -1:result;
   }
 
+  /**
+   * Checks if a {@link String} is different from another {@link String}
+   * by only one edit (one different character, one additional character, one less character)
+   * @param firstString
+   * @param secondString
+   * @return true if the two {@link String} are different by only one edit
+   */
   public static boolean oneEditAway(String firstString, String secondString) {
     if(firstString.length() == secondString.length()) {
-      return oneEditAway(firstString, secondString);
+      return oneEditReplacement(firstString, secondString);
     } else if (firstString.length() - secondString.length() == 1) {
       return oneInsertAway(firstString, secondString);
     } else if (secondString.length() - firstString.length() == 1) {
