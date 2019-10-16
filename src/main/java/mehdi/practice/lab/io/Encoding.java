@@ -36,8 +36,6 @@ public class Encoding {
 
   public static String runLengthDecode(String str) {
 
-    char lastChar = Character.MIN_VALUE;
-
     StringBuilder stringBuilder = new StringBuilder();
     StringBuilder occurence = new StringBuilder();
 
