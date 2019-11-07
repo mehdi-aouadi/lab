@@ -16,4 +16,11 @@ public class BinarySearchTreeTest {
     BinarySearchTree.Node root = new BinarySearchTree.Node(50, ten, eighty);
     Assert.assertTrue(BinarySearchTree.checkBTS(root));
   }
+
+
+
+
+
+
+
 }

@@ -1,8 +1,7 @@
 package mehdi.practice.lab.io;
 
-import ctci.chapter.one.ArraysStrings;
+import ctci.chapter.one_arrays_strings.ArraysStrings;
 
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 

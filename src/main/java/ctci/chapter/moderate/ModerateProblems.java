@@ -1,4 +1,4 @@
-package ctci.chapter.sixteen;
+package ctci.chapter.moderate;
 
 import java.util.Arrays;
 import java.util.Stack;

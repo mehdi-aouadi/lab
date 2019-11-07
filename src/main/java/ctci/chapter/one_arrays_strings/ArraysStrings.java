@@ -1,6 +1,9 @@
-package ctci.chapter.one;
+package ctci.chapter.one_arrays_strings;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ArraysStrings {
 
@@ -43,7 +46,6 @@ public class ArraysStrings {
     int bitVector = 0;
     for (int index = 0; index < str.length(); index++) {
       int charCode = str.charAt(index) - 'a';
-      String binaryVector = Integer.toBinaryString(bitVector);
       if((bitVector & (1 << charCode))> 0) {
         return false;
       }
@@ -133,7 +135,7 @@ public class ArraysStrings {
             "or special charctacter ither tha '-'", str));
       }
       result = result * 10;
-      result += str.charAt(index) - '0';
+      result += intValue;
     }
     return negative ? result * -1:result;
   }
@@ -186,6 +188,42 @@ public class ArraysStrings {
       }
     }
     return true;
+  }
+
+  public static String mostCommonWord(String paragraph, String[] banned) {
+    Map<String, Integer> wordsCount = new HashMap<>();
+    List<String> bannedWords = Arrays.asList(banned);
+    String [] words = paragraph.split("[!?',;.]*\\s+[!?',;.]*|[!?',;.]");
+    int maxOccurence = 0;
+    String result = "";
+    for(int index=0; index < words.length; index++) {
+      String current = words[index].toLowerCase();
+      if(!bannedWords.contains(current)) {
+        if(wordsCount.containsKey(current)) {
+          int newCount = wordsCount.get(current) + 1;
+          wordsCount.put(current, newCount);
+          if(newCount >= maxOccurence) {
+            maxOccurence = newCount;
+            result = current;
+          }
+        } else {
+          wordsCount.put(current, 1);
+          if(maxOccurence < 1) {
+            maxOccurence = 1;
+            result = current;
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  public static String reverseString(String s) {
+    StringBuilder sb = new StringBuilder();
+    for(int index=s.length() - 1; index>=0; index--) {
+      sb.append(s.charAt(index));
+    }
+    return sb.toString();
   }
 
 

@@ -1,18 +1,13 @@
 package am;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Graph {
   private Map<Integer, Node> nodeLookUp;
 
   static class Node {
     private int id;
-    private LinkedList<Node> adjacent = new LinkedList<>();
+    private List<Node> adjacent = new LinkedList<>();
     Node(int id) {
       this.id = id;
     }

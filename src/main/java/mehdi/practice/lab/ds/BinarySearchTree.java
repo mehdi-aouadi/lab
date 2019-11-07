@@ -13,8 +13,8 @@ public class BinarySearchTree {
     if(node.value < minValue || node.value > maxValue) {
       return false;
     }
-    return checkBTS(node.rightNode, node.value - 1, maxValue)
-        && checkBTS(node.leftNode, minValue, node.value - 1);
+    return checkBTS(node.leftNode, minValue, node.value - 1)
+        && checkBTS(node.rightNode, node.value - 1, maxValue);
   }
 
   public static class Node {

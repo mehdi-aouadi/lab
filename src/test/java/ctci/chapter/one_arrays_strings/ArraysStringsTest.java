@@ -1,4 +1,4 @@
-package ctci.chapter.one;
+package ctci.chapter.one_arrays_strings;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -61,5 +61,12 @@ public class ArraysStringsTest {
   @Parameters({"123, 123", "1000, 1000", "-123, -123"})
   public void stringToIntegerTestOk(String integerString, int result) {
     Assert.assertEquals(result, ArraysStrings.stringToInteger(integerString));
+  }
+
+  @Test
+  public void mostCommon() {
+    String phrase = "Bob hit a ball, the hit BALL flew far after it was hit.";
+    String [] banned = new String[] {"hit"};
+    ArraysStrings.mostCommonWord(phrase, banned);
   }
 }
