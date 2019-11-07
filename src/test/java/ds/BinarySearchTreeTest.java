@@ -1,6 +1,6 @@
 package ds;
 
-import mehdi.practice.lab.ds.BinarySearchTree;
+import practice.lab.ds.BinarySearchTree;
 
 import org.junit.Assert;
 import org.junit.Test;
