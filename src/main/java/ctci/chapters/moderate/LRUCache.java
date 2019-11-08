@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.concurrent.TimeUnit;
 
 public class LRUCache<T> {
 
@@ -39,6 +40,11 @@ public class LRUCache<T> {
     entry.data = data;
     entry.key = key;
     entry.lastUsed = Instant.now();
+    try {
+      TimeUnit.MILLISECONDS.sleep(100);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     if(this.entries.size() >= MAX_SIZE) {
       this.entries.remove(getLRUKey());
     }
