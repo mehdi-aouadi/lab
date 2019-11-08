@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class SmallestDifference {
 
+  // Page 181
+  // 16.6
   // Given two arrays of integers, compute the pair of values (one value in each
   // array) with the smallest (non-negative) difference. Return the difference.
   // EXAMPLE
