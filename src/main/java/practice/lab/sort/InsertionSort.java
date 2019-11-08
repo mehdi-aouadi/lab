@@ -18,8 +18,4 @@ public class InsertionSort {
     }
   }
 
-  public static int fibonacci(int number) {
-    return number == 0 ? 0 : number == 1 ? 1 : fibonacci(number - 1) + fibonacci(number -2);
-  }
-
 }

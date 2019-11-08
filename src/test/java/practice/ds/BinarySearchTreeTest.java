@@ -1,4 +1,4 @@
-package ds;
+package practice.ds;
 
 import practice.lab.ds.BinarySearchTree;
 
