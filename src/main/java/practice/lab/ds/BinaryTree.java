@@ -20,7 +20,7 @@ public class BinaryTree {
 
 	}
 
-	private class Node {
+	public static class Node {
 
 		int data;
 		Node left;
