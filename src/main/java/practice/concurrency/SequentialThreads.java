@@ -1,4 +1,4 @@
-package practice.lab.concurrency;
+package practice.concurrency;
 
 public class SequentialThreads {
 	

@@ -1,4 +1,4 @@
-package practice.lab.string;
+package practice.string;
 
 public class Permutation {
 

@@ -1,7 +1,5 @@
 package practice.sort;
 
-import practice.lab.sort.MergeSort;
-
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package practice.lab.io;
+package practice.io;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

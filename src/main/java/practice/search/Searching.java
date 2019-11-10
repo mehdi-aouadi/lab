@@ -1,4 +1,4 @@
-package practice.lab.search;
+package practice.search;
 
 import java.util.Arrays;
 

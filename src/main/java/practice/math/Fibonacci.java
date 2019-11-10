@@ -1,4 +1,4 @@
-package practice.lab.math;
+package practice.math;
 
 public class Fibonacci {
 

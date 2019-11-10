@@ -1,4 +1,4 @@
-package practice.lab.ds;
+package practice.ds;
 
 import java.util.ArrayList;
 import java.util.List;

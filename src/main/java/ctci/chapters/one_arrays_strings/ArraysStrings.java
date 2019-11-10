@@ -132,7 +132,7 @@ public class ArraysStrings {
       int intValue = str.charAt(index) - '0';
       if(intValue > 9 || intValue < 0) {
         throw new IllegalArgumentException(String.format("%s contains non digit value " +
-            "or special charctacter ither tha '-'", str));
+            "or special character other than '-'", str));
       }
       result = result * 10;
       result += intValue;

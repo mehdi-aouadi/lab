@@ -1,4 +1,4 @@
-package practice.lab.sort;
+package practice.sort;
 
 public class InsertionSort {
 

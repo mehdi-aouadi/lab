@@ -1,4 +1,4 @@
-package practice.lab.ds;
+package practice.ds;
 
 public class BinarySearchTree {
 

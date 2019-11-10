@@ -1,7 +1,5 @@
 package practice.ds;
 
-import practice.lab.ds.BinarySearchTree;
-
 import org.junit.Assert;
 import org.junit.Test;
 

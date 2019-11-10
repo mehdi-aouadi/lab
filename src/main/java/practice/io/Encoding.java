@@ -1,4 +1,4 @@
-package practice.lab.io;
+package practice.io;
 
 import ctci.chapters.one_arrays_strings.ArraysStrings;
 
