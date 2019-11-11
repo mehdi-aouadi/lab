@@ -66,7 +66,8 @@ public class AnagramsInString {
       String next = s.substring(index, index + p.length());
       Map<Character, Integer> currentCount = new HashMap<>();
       boolean permutation = true;
-      for (Character c: next.toCharArray()) {
+      for(int pIndex = 0; pIndex < next.length(); pIndex ++) {
+        Character c = next.charAt(pIndex);
         if(lettersCount.containsKey(c)
             && (!currentCount.containsKey(c))) {
           currentCount.put(c, 1);
@@ -74,7 +75,11 @@ public class AnagramsInString {
             && (currentCount.containsKey(c) && currentCount.get(c) < lettersCount.get(c))) {
           currentCount.put(c, currentCount.get(c) + 1);
         } else {
+          if(!lettersCount.containsKey(c)) {
+            index += pIndex;
+          }
           permutation = false;
+          break;
         }
       }
       if(permutation) {
