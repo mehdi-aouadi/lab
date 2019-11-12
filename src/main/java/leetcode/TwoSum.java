@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,19 @@ public class TwoSum {
       visitedValues.put(complement, index);
     }
     return null;
+  }
+
+  public static boolean twoSumBinarySearch(int[] array, int target) {
+    Arrays.sort(array);
+    for(int index = 0; index < array.length; index++) {
+      int current = array[index];
+      int complement = target - current;
+      int complementIndex = Arrays.binarySearch(array, complement);
+      if(complementIndex >= 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

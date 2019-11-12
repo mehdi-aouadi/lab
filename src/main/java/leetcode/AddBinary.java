@@ -17,16 +17,16 @@ import java.math.BigInteger;
  */
 public class AddBinary {
   public static String addBinaryBigInteger(String a, String b) {
-    BigInteger x = new BigInteger(a, 2);
-    BigInteger y = new BigInteger(b, 2);
+    BigInteger aValue = new BigInteger(a, 2);
+    BigInteger bValue = new BigInteger(b, 2);
     BigInteger zero = new BigInteger("0", 2);
-    BigInteger carry, sumWithoutCarrying;
-    while (y.compareTo(zero) != 0) {
-      sumWithoutCarrying = x.xor(y);
-      carry = x.and(y).shiftLeft(1);
-      x = sumWithoutCarrying;
-      y = carry;
+    BigInteger carry, sumWithoutCarry;
+    while (bValue.compareTo(zero) != 0) {
+      sumWithoutCarry = aValue.xor(bValue);
+      carry = aValue.and(bValue).shiftLeft(1);
+      aValue = sumWithoutCarry;
+      bValue = carry;
     }
-    return x.toString(2);
+    return aValue.toString(2);
   }
 }
