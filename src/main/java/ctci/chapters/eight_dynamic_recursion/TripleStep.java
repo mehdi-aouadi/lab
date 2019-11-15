@@ -9,6 +9,16 @@ import java.util.Arrays;
  */
 public class TripleStep {
 
+  public static int countRecursive(int steps) {
+    if(steps < 0) {
+      return 0;
+    } else if (steps == 0){
+      return 1;
+    } else {
+      return countRecursive(steps - 1) + countRecursive(steps - 2) + countRecursive(steps - 3);
+    }
+  }
+
   public static int count(int stairSteps) {
     if(stairSteps <= 0) {
       return 0;

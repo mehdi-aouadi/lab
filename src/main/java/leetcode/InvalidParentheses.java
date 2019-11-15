@@ -7,6 +7,23 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+/**
+ * https://leetcode.com/problems/remove-invalid-parentheses/
+ *
+ * Remove the minimum number of invalid parentheses in order to make the input string valid.
+ * Return all possible results.
+ *
+ * Note: The input string may contain letters other than the parentheses ( and ).
+ *
+ * Example 1:
+ *
+ * Input: "()())()" Output: ["()()()", "(())()"] Example 2:
+ *
+ * Input: "(a)())()" Output: ["(a)()()", "(a())()"] Example 3:
+ *
+ * Input: ")(" Output: [""]
+ *
+ */
 public class InvalidParentheses {
 
   private Set<String> validExpressions = new HashSet<>();
