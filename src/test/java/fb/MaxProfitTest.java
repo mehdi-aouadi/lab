@@ -9,6 +9,8 @@ public class MaxProfitTest {
   public void maxProfitOneTransactionTest() {
     int[] prices = new int[] {10, 20, 5, 15, 50};
     Assert.assertEquals(45, MaximumProfit.maxProfit(prices));
+    prices = new int[] {10};
+    Assert.assertEquals(0, MaximumProfit.maxProfit(prices));
   }
 
   @Test

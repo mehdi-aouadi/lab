@@ -122,7 +122,7 @@ public class MaximumProfit {
 
   public static int maxProfit(int[] prices) {
     int profit = 0;
-    if(prices.length < 2) {
+    if(prices.length == 0) {
       return profit;
     }
     int buyingPrice = prices[0];

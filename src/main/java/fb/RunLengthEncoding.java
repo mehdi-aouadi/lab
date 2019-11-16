@@ -42,10 +42,7 @@ public class RunLengthEncoding {
         if(occurrence.length() != 0) {
           Character charToAppend = lastChar;
           decoded.append(
-              IntStream
-                  .range(0,ArraysStrings.stringToInteger(occurrence.toString()))
-                  .mapToObj(i -> String.valueOf(charToAppend))
-                  .collect(Collectors.joining(""))
+              appendChar(charToAppend, occurrence)
           );
           occurrence.setLength(0);
         }
@@ -54,12 +51,16 @@ public class RunLengthEncoding {
     }
     Character charToAppend = lastChar;
     decoded.append(
-        IntStream
-            .range(0,ArraysStrings.stringToInteger(occurrence.toString()))
-            .mapToObj(i -> String.valueOf(charToAppend))
-            .collect(Collectors.joining(""))
+        appendChar(charToAppend, occurrence)
     );
     return decoded.toString();
+  }
+
+  private static String appendChar(Character charToAppend, StringBuilder occurrence) {
+    return IntStream
+        .range(0,ArraysStrings.stringToInteger(occurrence.toString()))
+        .mapToObj(i -> String.valueOf(charToAppend))
+        .collect(Collectors.joining(""));
   }
 
 }
