@@ -1,7 +1,7 @@
 package ctci.chapters.hard;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem
@@ -36,7 +36,6 @@ public class RunningMedian {
       rebalanceHeaps(lowerValues, higherValues);
       medians[index] = getMedian(lowerValues, higherValues);
     }
-
     return medians;
   }
 

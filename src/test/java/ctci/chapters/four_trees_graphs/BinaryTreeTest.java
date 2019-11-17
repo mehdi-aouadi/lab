@@ -3,6 +3,8 @@ package ctci.chapters.four_trees_graphs;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class BinaryTreeTest {
 
   @Test
@@ -45,5 +47,35 @@ public class BinaryTreeTest {
     two_right.right = three_right;
     two_right.left = four_right;
     Assert.assertTrue(BinaryTree.isSymmetric(one));
+  }
+
+  @Test
+  public void toLinkedListTest() {
+    BinaryTree.Node head = new BinaryTree.Node(4);
+    BinaryTree.Node two = new BinaryTree.Node(2);
+    BinaryTree.Node three = new BinaryTree.Node(3);
+    BinaryTree.Node one = new BinaryTree.Node(1);
+    BinaryTree.Node five = new BinaryTree.Node(5);
+    two.left = one;
+    two.right = three;
+    head.left = two;
+    head.right = five;
+    BinaryTree.Node linkedList = BinaryTree.toLinkedList(head);
+  }
+
+  @Test
+  public void verticalOrderTest() {
+    BinaryTree.Node head = new BinaryTree.Node(6);
+    BinaryTree.Node four = new BinaryTree.Node(4);
+    head.left = four;
+    BinaryTree.Node five = new BinaryTree.Node(5);
+    BinaryTree.Node one = new BinaryTree.Node(1);
+    four.right = five;
+    four.left = one;
+    BinaryTree.Node two = new BinaryTree.Node(2);
+    one.right = two;
+    BinaryTree.Node three = new BinaryTree.Node(3);
+    two.right = three;
+    List<List<Integer>> verticalOrder = BinaryTree.verticalOrder(head);
   }
 }
