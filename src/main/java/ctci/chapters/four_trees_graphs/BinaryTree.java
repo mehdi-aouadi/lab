@@ -1,7 +1,6 @@
 package ctci.chapters.four_trees_graphs;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class BinaryTree {
 

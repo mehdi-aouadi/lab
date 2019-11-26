@@ -1,7 +1,6 @@
 package ctci.chapters.hard;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * https://www.hackerrank.com/challenges/ctci-find-the-running-median/problem

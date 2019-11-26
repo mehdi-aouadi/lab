@@ -1,7 +1,6 @@
 package fb;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Given an unsorted array of numbers, write a function that returns true if array consists of consecutive numbers.

@@ -1,8 +1,5 @@
 package ctci.chapters.moderate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NumberSwapper {
 
   // Page 181

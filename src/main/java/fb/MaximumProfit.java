@@ -1,7 +1,5 @@
 package fb;
 
-import java.util.Arrays;
-
 /**
  * https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-k-times/
  *
@@ -51,7 +49,6 @@ public class MaximumProfit {
     int[][] profits = new int [k + 1][prices.length];
 
     for(int transaction=1; transaction <= k; transaction++) {
-      int maxOverAll = profits[transaction - 1][0] - prices[0];
       for(int day=1; day < prices.length; day++) {
         profits[transaction][day] =
            Math.max(profits[transaction][day-1], prices[day] + maxOldProfit(profits, prices, day, transaction));
