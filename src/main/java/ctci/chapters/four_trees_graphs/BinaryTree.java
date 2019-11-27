@@ -11,6 +11,76 @@ public class BinaryTree {
     Node(int x) { val = x; }
   }
 
+  public static Map<Integer, Integer> averageByLevel(Node root) {
+    if(root == null) {
+      return null;
+    }
+    Map<Integer, List<Integer>> collectMap = new HashMap<>();
+    avgByLevelHelper(root, collectMap, 0);
+    Map<Integer, Integer> result = new HashMap<>();
+    for (Map.Entry<Integer, List<Integer>> entry : collectMap.entrySet()) {
+      result.put(entry.getKey(), entry.getValue().stream().mapToInt(i -> i.intValue()).sum() / entry.getValue().size());
+    }
+    return result;
+  }
+
+  private static void avgByLevelHelper(Node node, Map<Integer, List<Integer>> avgMap, int level) {
+    if(node == null) {
+      return;
+    }
+
+    if(avgMap.containsKey(level)) {
+      avgMap.get(level).add(node.val);
+    } else {
+      List<Integer> values = new ArrayList<>();
+      values.add(node.val);
+      avgMap.put(level,values);
+    }
+    avgByLevelHelper(node.left, avgMap, level+1);
+    avgByLevelHelper(node.right, avgMap, level+1);
+
+  }
+
+  public static Map<Integer, Integer> averageByLevelBFS(Node root) {
+    if(root == null) {
+      return null;
+    }
+    Map<Integer, List<Integer>> avgMap = new HashMap<>();
+    int level = 0;
+    LinkedList<Node> toVisit = new LinkedList<>();
+    toVisit.add(root);
+
+    while (!toVisit.isEmpty()) {
+
+      LinkedList<Node> temp = new LinkedList<>();
+
+      while (!toVisit.isEmpty()) {
+        Node current = toVisit.remove();
+        if (avgMap.containsKey(level)) {
+          avgMap.get(level).add(current.val);
+        } else {
+          List<Integer> values = new ArrayList<>();
+          values.add(current.val);
+          avgMap.put(level, values);
+        }
+        if(current.left != null) {
+          temp.add(current.left);
+        }
+        if(current.right != null) {
+          temp.add(current.right);
+        }
+      }
+      level++;
+      toVisit = temp;
+    }
+
+    Map<Integer, Integer> result = new HashMap<>();
+    for (Map.Entry<Integer, List<Integer>> entry : avgMap.entrySet()) {
+      result.put(entry.getKey(), entry.getValue().stream().mapToInt(i -> i.intValue()).sum() / entry.getValue().size());
+    }
+    return result;
+  }
+
   /**
    * Validate BST: Implement a function to check if a binary tree is a binary search tree.
    */

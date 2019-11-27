@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class BinaryTreeTest {
 
@@ -77,5 +78,64 @@ public class BinaryTreeTest {
     BinaryTree.Node three = new BinaryTree.Node(3);
     two.right = three;
     List<List<Integer>> verticalOrder = BinaryTree.verticalOrder(head);
+  }
+
+  @Test
+  public void averageByLevelTest() {
+    BinaryTree.Node head = new BinaryTree.Node(6);
+    BinaryTree.Node four = new BinaryTree.Node(4);
+    BinaryTree.Node seven = new BinaryTree.Node(7);
+    head.left = four;
+    head.right = seven;
+    BinaryTree.Node five = new BinaryTree.Node(5);
+    BinaryTree.Node one = new BinaryTree.Node(1);
+    four.right = five;
+    four.left = one;
+    /**
+     *        6
+     *       / \
+     *      4   7
+     *     / \
+     *    1   5
+     *
+     *
+     */
+    Map<Integer, Integer> averageByLevel = BinaryTree.averageByLevelBFS(head);
+    Assert.assertEquals(3, averageByLevel.size());
+    Assert.assertEquals(head.val, averageByLevel.get(0).intValue());
+    Assert.assertEquals((four.val + seven.val) / 2, averageByLevel.get(1).intValue());
+    Assert.assertEquals((one.val + five.val) / 2, averageByLevel.get(2).intValue());
+  }
+
+  @Test
+  public void averageByLevelBFSTest() {
+    BinaryTree.Node head = new BinaryTree.Node(6);
+    BinaryTree.Node four = new BinaryTree.Node(4);
+    BinaryTree.Node seven = new BinaryTree.Node(7);
+    BinaryTree.Node three = new BinaryTree.Node(3);
+    BinaryTree.Node nine = new BinaryTree.Node(9);
+    seven.left = three;
+    seven.right = nine;
+    head.left = four;
+    head.right = seven;
+    BinaryTree.Node five = new BinaryTree.Node(5);
+    BinaryTree.Node one = new BinaryTree.Node(1);
+    four.right = five;
+    four.left = one;
+    /**
+     *          6
+     *        /   \
+     *       /     \
+     *      4       7
+     *     / \     / \
+     *    1   5   3   9
+     *
+     *
+     */
+    Map<Integer, Integer> averageByLevel = BinaryTree.averageByLevelBFS(head);
+    Assert.assertEquals(3, averageByLevel.size());
+    Assert.assertEquals(head.val, averageByLevel.get(0).intValue());
+    Assert.assertEquals((four.val + seven.val) / 2, averageByLevel.get(1).intValue());
+    Assert.assertEquals((one.val + five.val + three.val + nine.val) / 4, averageByLevel.get(2).intValue());
   }
 }
