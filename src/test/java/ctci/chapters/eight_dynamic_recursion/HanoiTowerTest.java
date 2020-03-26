@@ -2,8 +2,6 @@ package ctci.chapters.eight_dynamic_recursion;
 
 import org.junit.Test;
 
-import java.util.Stack;
-
 public class HanoiTowerTest {
 
   @Test
