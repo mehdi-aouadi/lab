@@ -76,4 +76,12 @@ public class OddOccurrencesInArray {
     return result;
   }
 
+  public static int oddOccurrenceNoSpace(int[] array) {
+    int result = 0;
+    for (int index = 0; index < array.length; index++) {
+      result ^= array[index];
+    }
+    return result;
+  }
+
 }

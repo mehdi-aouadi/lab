@@ -16,15 +16,15 @@ public class SplitArray {
   public static int splitArray(int[] array, int value) {
     int length = array.length;
     int count = 0;
-    int seg = 0;
+    int consecutiveCount = 0;
     for (int index = 0; index < length; index++) {
       if(array[index] == value) {
         count++;
-        seg++;
+        consecutiveCount++;
       } else {
-        seg = 0;
+        consecutiveCount = 0;
       }
     }
-    return (count > 0 && count != seg) ? (length - count) : -1;
+    return (count > 0 && count != consecutiveCount) ? (length - count) : -1;
   }
 }
