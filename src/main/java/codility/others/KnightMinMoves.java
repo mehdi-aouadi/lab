@@ -24,51 +24,6 @@ public class KnightMinMoves {
     }
   }
 
-  public static int knightMinMove(int row, int col) {
-      Set<Position> visited = new HashSet<>();
-      LinkedList<Position> toVisit = new LinkedList<>();
-      Position knightPosition = new Position(0, 0);
-      Position destination = new Position(row, col);
-      int moves = 0;
-      toVisit.push(knightPosition);
-
-      while(!toVisit.isEmpty()) {
-        Position current = toVisit.remove();
-        if(current.equals(destination)) {
-          return moves;
-        }
-
-        if(visited.contains(current)) {
-          continue;
-        }
-
-        visited.add(current);
-
-        toVisit.add(new Position(current.row + 2, current.col + 1));
-        toVisit.add(new Position(current.row + 1, current.col + 2));
-        if(current.col - 1 >= 0) {
-          toVisit.add(new Position(current.row + 2, current.col - 1));
-        }
-        if(current.row - 1 >= 0) {
-          toVisit.add(new Position(current.row - 1, current.col + 2));
-        }
-        if(current.row - 2 >= 0) {
-          toVisit.add(new Position(current.row - 2, current.col + 1));
-          if(current.col - 1 >= 0) {
-            toVisit.add(new Position(current.row - 2, current.col - 1));
-          }
-        }
-        if(current.col - 2 >= 0) {
-          toVisit.add(new Position(current.row + 1, current.col - 2));
-          if(row - 1 >= 0) {
-            toVisit.add(new Position(current.row - 1, current.col - 2));
-          }
-        }
-        moves++;
-      }
-      return -1;
-  }
-
   public static int knightMinMoveByLevel(int row, int col) {
     Set<Position> visited = new HashSet<>();
     TreeMap<Integer, LinkedList<Position>> toVisitByLevel = new TreeMap<>();
@@ -147,5 +102,50 @@ public class KnightMinMoves {
     }
   }
 
+
+  public static int knightMinMove(int row, int col) {
+    Set<Position> visited = new HashSet<>();
+    LinkedList<Position> toVisit = new LinkedList<>();
+    Position knightPosition = new Position(0, 0);
+    Position destination = new Position(row, col);
+    int moves = 0;
+    toVisit.push(knightPosition);
+
+    while(!toVisit.isEmpty()) {
+      Position current = toVisit.remove();
+      if(current.equals(destination)) {
+        return moves;
+      }
+
+      if(visited.contains(current)) {
+        continue;
+      }
+
+      visited.add(current);
+
+      toVisit.add(new Position(current.row + 2, current.col + 1));
+      toVisit.add(new Position(current.row + 1, current.col + 2));
+      if(current.col - 1 >= 0) {
+        toVisit.add(new Position(current.row + 2, current.col - 1));
+      }
+      if(current.row - 1 >= 0) {
+        toVisit.add(new Position(current.row - 1, current.col + 2));
+      }
+      if(current.row - 2 >= 0) {
+        toVisit.add(new Position(current.row - 2, current.col + 1));
+        if(current.col - 1 >= 0) {
+          toVisit.add(new Position(current.row - 2, current.col - 1));
+        }
+      }
+      if(current.col - 2 >= 0) {
+        toVisit.add(new Position(current.row + 1, current.col - 2));
+        if(row - 1 >= 0) {
+          toVisit.add(new Position(current.row - 1, current.col - 2));
+        }
+      }
+      moves++;
+    }
+    return -1;
+  }
 
 }
