@@ -8,11 +8,6 @@ import java.util.stream.IntStream;
 public class Encoding {
 
   public static String runLengthEncode(String str) {
-    if(str.matches(".*\\d.*")) {
-      throw new IllegalArgumentException("String should not contain any digit. Otherwise it will " +
-          "compromise the encoding / decoding.");
-    }
-
     StringBuilder stringBuilder = new StringBuilder();
     char lastChar = str.charAt(0);
     char currentChar;
@@ -36,20 +31,20 @@ public class Encoding {
   public static String runLengthDecode(String str) {
 
     StringBuilder stringBuilder = new StringBuilder();
-    StringBuilder occurence = new StringBuilder();
+    StringBuilder occurrence = new StringBuilder();
 
     for (int index = 0; index < str.length(); index++) {
       char currentChar = str.charAt(index);
       if(currentChar - '0' < 10) {
-        occurence.append(currentChar);
+        occurrence.append(currentChar);
       } else {
         stringBuilder.append(
             IntStream
-                .range(0,ArraysStrings.stringToInteger(occurence.toString()))
+                .range(0,ArraysStrings.stringToInteger(occurrence.toString()))
                 .mapToObj(i -> String.valueOf(currentChar))
                 .collect(Collectors.joining(""))
         );
-        occurence.setLength(0);
+        occurrence.setLength(0);
       }
     }
     return stringBuilder.toString();
